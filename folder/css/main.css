@@ -1,0 +1,9 @@
+body{
+  background: #eee;
+}
+
+canvas{
+    background-image: url("../img/sfc.png");
+    display: block;
+    margin: auto;
+}
