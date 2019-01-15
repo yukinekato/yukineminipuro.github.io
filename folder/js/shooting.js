@@ -137,22 +137,22 @@ $(window).on({
    var movePlayer = function () {
       // もしも(playerHp <= 0)なら
       if (playerHp <= 0) {
-        // returnが実行されるとそれ以降の処理は実行されずに中断する＝つまり、duck_hp <= 0のとき以下は行わない
+        // returnが実行されるとそれ以降の処理は実行されずに中断する＝つまり、playerHp <= 0のとき以下は行わない
         return;
       }
 // 移動速度を定義
       var SPEED = 2;
   // これは四角から鴨が飛びなさないようにするため
-      if (keys[74] && playerX + imgs.player.width < canvas.width) { // right arrow
+      if (keys[74] && playerX + imgs.player.width < canvas.width) {
         playerX += SPEED;
       }
 
-      if (keys[70] && playerX > 0) { // left arrow
+      if (keys[70] && playerX > 0) {
         playerX -= SPEED;
       }
 
 // (KEYS[UP]（スペースキーが押される） && duck_fire_interval == 0（インターバルが０に戻っている
-      if (keys[32] && playerFireInterval == 0) { // up arrow
+      if (keys[32] && playerFireInterval == 0) { 
         for (var i=0; i<BULLETS;  i++) {
           if (bulletsHp[i] == 0) {
              // 弾は鴨が発射するので初期位置が同じ
