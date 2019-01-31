@@ -152,7 +152,7 @@ $(window).on({
       }
 
 // (KEYS[UP]（スペースキーが押される） && duck_fire_interval == 0（インターバルが０に戻っている
-      if (keys[32] && playerFireInterval == 0) { 
+      if (keys[32] && playerFireInterval == 0) {
         for (var i=0; i<BULLETS;  i++) {
           if (bulletsHp[i] == 0) {
              // 弾は鴨が発射するので初期位置が同じ
@@ -166,6 +166,7 @@ $(window).on({
           }
         }
       }
+
  // プレイヤーがはみ出てしまった場合は強制的に中に戻す
       if (playerFireInterval > 0) {
         playerFireInterval--;
@@ -197,17 +198,17 @@ $(window).on({
     };
 // カラス移動処理
     var moveEnemies = function () {
-      var SPEED = 2;
+      var SPEED = 1.5;
       for (var i=0; i<ENEMIES; i++) {
         if (enemiesHp[i] <= 0){
           continue;
         }
 
-        enemiesY[i] += SPEED;
+         enemiesX[i] += SPEED;
 
-        if (enemiesY[i] > canvas.height) {
-          enemiesY[i] = -imgs.enemy.height;
-          enemiesX[i] = Math.random() * (canvas.width - imgs.enemy.width);
+        if (enemiesX[i] > canvas.height) {
+          enemiesX[i] = -imgs.enemy.width;
+          enemiesY[i] = Math.random() * (canvas.height + imgs.player.height/2);
         }
       }
     };
